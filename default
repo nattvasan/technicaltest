@@ -1,0 +1,14 @@
+upstream backend_hosts {
+    server xx.xx.xx.xx:8484;
+    server yy.yy.yy.yy:8484;
+    
+}
+
+server {
+    listen 80;
+    server_name zz.zz.zz.zz;
+
+    location / {
+        proxy_pass http://backend_hosts;
+    }
+}
